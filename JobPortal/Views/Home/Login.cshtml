@@ -1,0 +1,36 @@
+﻿@model JobPortal.Models.Login
+<hgroup class="title">
+    <h2>@ViewBag.Message</h2>
+</hgroup>
+
+<div class="row">
+    <h2>Login</h2>
+</div>
+<div class="row">
+    @using (Html.BeginForm("Index", "Login", FormMethod.Post, null))
+    {
+        @Html.ValidationSummary(true, "Login failed. Check your login details.");
+        <div>
+            <fieldset>
+                <legend>Login</legend>
+                <div class="editor-label">
+                    @Html.LabelFor(u => u.Name)
+                    @Html.TextBoxFor(u => u.Name)
+                </div>
+
+                <div class="editor-field">
+                    @Html.LabelFor(u => u.Password)
+                    @Html.PasswordFor(u => u.Password)
+                </div>
+                <input type="submit" value="Submit" />
+
+                @if (TempData["Message"] != null)
+                {
+                    <span style="color:red;"><b>@TempData["Message"].ToString()</b></span>
+                }
+
+            </fieldset>
+        </div>
+    }
+
+</div>

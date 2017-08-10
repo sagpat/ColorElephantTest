@@ -1,0 +1,30 @@
+﻿@model List<JobPortal.Models.UserData>;
+
+@{
+    ViewBag.Title = "Records";
+}
+
+<h2>Records</h2>
+
+
+<fieldset>
+
+<table>
+    <tr>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Website</th>
+        <th>Cover Letter</th>
+    </tr>
+    @foreach (var data in Model)
+    {
+        <tr>
+            <td>@data.UserName</td>
+            <td>@data.Email</td>
+            <td>@data.Website</td>
+            <td>@data.CoverLetter</td>
+        </tr>
+    }
+</table>
+</fieldset>
+

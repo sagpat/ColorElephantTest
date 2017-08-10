@@ -1,0 +1,48 @@
+﻿@model JobPortal.Models.RegistrationModel
+<hgroup class="title">    
+    <h2>@ViewBag.Message</h2>
+</hgroup>
+
+<section class="section-form">
+    <div class="row">        
+        <h2>Registration</h2>
+    </div>
+    
+    @using (Html.BeginForm("Index", "Registration", FormMethod.Post, null))
+    {
+        @Html.ValidationSummary(true, "Login failed. Check your login details.");
+        <div>
+            <fieldset>
+                <legend>Login</legend>
+                <div class="editor-label">
+                    @Html.LabelFor(u => u.Name)
+                    @Html.TextBoxFor(u => u.Name)
+                </div>
+
+                <div class="editor-field">
+                    @Html.LabelFor(u => u.Email)
+                    @Html.TextBoxFor(u => u.Email)
+                </div>
+                
+                <div class="editor-field">
+                    @Html.LabelFor(u => u.Password)
+                    @Html.PasswordFor(u =>u.Password)
+                </div>
+
+                <div class="editor-field">
+                    @Html.LabelFor(u => u.RePassword)
+                    @Html.PasswordFor(u => u.RePassword)
+                </div>
+                <input type="submit" value="Submit"/>
+                
+                @if (TempData["Message"] != null){
+                <span style="color:red;"><b>@TempData["Message"].ToString()</b></span>
+
+                }
+
+            </fieldset>
+        </div>
+    }
+
+
+</section>			

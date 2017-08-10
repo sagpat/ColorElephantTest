@@ -1,0 +1,69 @@
+﻿@model JobPortal.Models.Index
+
+@{
+    ViewBag.Title = "Application Form";
+}
+@section featured {
+    <section class="featured">
+        <div class="content-wrapper">
+            <hgroup class="title">
+                <h1>@ViewBag.Title.</h1>
+            </hgroup>
+            <p>
+                Apply for the position using below form.
+            </p>
+        </div>
+    </section>
+}
+
+<script src='https://www.google.com/recaptcha/api.js'></script>
+
+
+@using (Html.BeginForm("Submit", "Index", FormMethod.Post, new { enctype = "multipart/form-data"}))
+{
+    @Html.ValidationSummary(true, "Login failed. Check your login details.");
+    <div>
+        <fieldset>
+            <legend>Login</legend>
+            <div class="editor-label">
+                @Html.LabelFor(u => u.UserName)
+                @Html.TextBoxFor(u => u.UserName)                
+            </div>
+
+            <div class="editor-field">
+                @Html.LabelFor(u => u.Email)
+                @Html.TextBoxFor(u => u.Email)                
+            </div>
+            <div class="editor-label">
+                @Html.LabelFor(u => u.Website)
+                @Html.TextBoxFor(u => u.Website)                
+            </div>
+            <div class="editor-field">
+                @Html.LabelFor(u => u.CoverLetter)
+                @Html.TextAreaFor(u => u.CoverLetter)                
+            </div>
+
+            <div class="editor-field">
+                @Html.LabelFor(m => m.File)                               
+                @Html.TextBoxFor(m => m.File, new { type = "file" })
+                @Html.ValidationMessageFor(m => m.FileName)
+            </div>
+
+            <div class="editor-label">
+                @Html.LabelFor(u => u.WorkWithUs)
+                @Html.RadioButton("Work", "Yes",
+                new { id = "Yes" }) Yes
+                <br>              
+                @Html.RadioButton("Work", "No",
+                new { id = "No" }) No
+            </div>
+            <input type="submit" value="Submit" />            
+
+            @if (TempData["Message"] != null)
+            {
+                <span style="color:red;"><b>@TempData["Message"].ToString()</b></span>
+            }
+        </fieldset>
+    </div>
+}
+
