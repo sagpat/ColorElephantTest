@@ -11,9 +11,9 @@ Test for ColorElephant
 
 3. Registration:  
 
-<img src = "Photos/Third.png">
+<img src = "Photos/third-registration.png">
 
 
 4. Login:  
 
-<img src = "Photos/Fourth.png">
+<img src = "Photos/fourth-login.png">
