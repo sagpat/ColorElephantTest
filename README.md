@@ -1,5 +1,5 @@
 # ColorElephantTest
-Test for ColorElephant
+Test for ColorElephant- This application is developed using ASP.Net MVC and MySQL Database.
 1. Application Form:  
 
 <img src = "Photos/First.png">
